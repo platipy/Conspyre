@@ -1,1 +1,0 @@
-Explanation about Conspyre, the developer API for communicating with Inspire
