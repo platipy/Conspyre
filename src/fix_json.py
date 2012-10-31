@@ -1,4 +1,7 @@
-import json
+try:
+    import json
+except:
+    import simplejson as json
 
 ####
 #### A few aux methods to help json not give us unicode objects
