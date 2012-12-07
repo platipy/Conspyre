@@ -51,10 +51,11 @@ conspyre.template.login('rtrexler', 'pass')
 conspyre.template.logout()
 
 print "Viewing Teachers"
-print conspyre.template.get_teacher_list()
+teachers = conspyre.template.get_teacher_list()
+print teachers
 
 print "Setting Teacher to Cory"
-conspyre.template.teacher= 'acbart'
+conspyre.template.teacher= teachers[0]['id']
 
 print "Viewing Students"
 print conspyre.template.get_student_list(None)
