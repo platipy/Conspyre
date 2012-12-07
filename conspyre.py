@@ -34,7 +34,7 @@ class Timeout(ConspyreException):
 
 class UserNotFoundException(ConspyreException):
     def __str__(self):
-        return """You must log in before you make that call."""
+        return """That user was not found in the database. Perhaps they have not registered?"""
         
 class LoginException(ConspyreException):
     def __str__(self):
@@ -152,7 +152,7 @@ class ConspyreConnection(object):
         r = json.loads(r.content)
         if r['type'] == "error":
             if r['error'] in exceptions:
-                raise exceptions(r['error'])
+                raise exceptions[r['error']]
             else:
                 raise Exception(r['error'])
         self.email = username
@@ -184,7 +184,7 @@ class ConspyreConnection(object):
         r = json.loads(r.content)
         if r['type'] == "error":
             if r['error'] in exceptions:
-                raise exceptions(r['error'])
+                raise exceptions[r['error']]
             else:
                 raise Exception(r['error'])
         self.email = username
@@ -221,7 +221,7 @@ class ConspyreConnection(object):
         r = json.loads(r.content)
         if r['type'] == "error":
             if r['error'] in exceptions:
-                raise exceptions(r['error'])
+                raise exceptions[r['error']]
             else:
                 raise Exception(r['error'])
         self.email = username
@@ -251,7 +251,7 @@ class ConspyreConnection(object):
         r = json.loads(r.content)
         if r['type'] == "error":
             if r['error'] in exceptions:
-                raise exceptions(r['error'])
+                raise exceptions[r['error']]
             else:
                 raise Exception(r['error'])
             
@@ -312,7 +312,7 @@ class ConspyreConnection(object):
         r = json.loads(r.content)
         if r['type'] == "error":
             if r['error'] in exceptions:
-                raise exceptions(r['error'])
+                raise exceptions[r['error']]
             else:
                 raise Exception(r['error'])
         return r['data']['teachers']
@@ -343,7 +343,7 @@ class ConspyreConnection(object):
         r = json.loads(r.content)
         if r['type'] == "error":
             if r['error'] in exceptions:
-                raise exceptions(r['error'])
+                raise exceptions[r['error']]
             else:
                 raise Exception(r['error'])
         return r['data']['students']
@@ -368,7 +368,7 @@ class ConspyreConnection(object):
         r = json.loads(r.content)
         if r['type'] == "error":
             if r['error'] in exceptions:
-                raise exceptions(r['error'])
+                raise exceptions[r['error']]
             else:
                 raise Exception(r['error'])
         self.connected = True

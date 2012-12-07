@@ -22,12 +22,10 @@ print conspyre.template.items()
 print conspyre.template.put(key="points", value=100)
 print conspyre.template.get(key="points")
 print conspyre.template.has(key="clothes")
-print conspyre.template.update(pairs={"points":200, "clothes": "Alpha, Beta"})
+print conspyre.template.update(dict={"points":200, "clothes": "Alpha, Beta"})
 print conspyre.template.get(key="points")
 print conspyre.template.items()
 conspyre.template.logout()
-
-sys.exit()
     
 print "Testing Logging"
 conspyre.template.log("Exploding!")
@@ -36,7 +34,7 @@ conspyre.template.log("Puppies!")
 conspyre.template.disconnect()
 
 print "Attempting to connect to the school server."
-conspyre.template.connect(server= 'http://127.0.0.1:8080', school= 'Chester Community Charter School')
+conspyre.template.connect(server= 'http://127.0.0.1:8080')
     
 try:
     print "Registering Becky"
@@ -55,7 +53,7 @@ teachers = conspyre.template.get_teacher_list()
 print teachers
 
 print "Setting Teacher to Cory"
-conspyre.template.teacher= teachers[0]['id']
+conspyre.template.teacher= teachers[0]['username']
 
 print "Viewing Students"
 print conspyre.template.get_student_list(None)
@@ -80,13 +78,13 @@ if attempts_left:
     
 conspyre.template.login('dog_lover', 'pass')
 
-print "Welcome %s!" % conspyre.template.student_name
-print "First", conspyre.template.get_dog_list()['dogs']
-dogs = conspyre.template.get_dog_list()['dogs']
-conspyre.template.rename_dog(id=dogs[0]['id'], name='Alfred')
-print "Renamed", conspyre.template.get_dog_list()['dogs']
-conspyre.template.add_dog(breed='poodle', name='dogbert')
-print "Added", conspyre.template.get_dog_list()['dogs']
-dogs = conspyre.template.get_dog_list()['dogs']
-conspyre.template.release_dog(id=dogs[0]['id'])
-print "Removed", conspyre.template.get_dog_list()['dogs']
+print "Welcome %s!" % conspyre.template.name
+# print "First", conspyre.template.get_dog_list()['dogs']
+# dogs = conspyre.template.get_dog_list()['dogs']
+# conspyre.template.rename_dog(id=dogs[0]['id'], name='Alfred')
+# print "Renamed", conspyre.template.get_dog_list()['dogs']
+# conspyre.template.add_dog(breed='poodle', name='dogbert')
+# print "Added", conspyre.template.get_dog_list()['dogs']
+# dogs = conspyre.template.get_dog_list()['dogs']
+# conspyre.template.release_dog(id=dogs[0]['id'])
+# print "Removed", conspyre.template.get_dog_list()['dogs']
